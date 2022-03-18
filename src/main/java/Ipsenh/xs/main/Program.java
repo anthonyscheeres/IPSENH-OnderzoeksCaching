@@ -1,5 +1,8 @@
 package Ipsenh.xs.main;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class Program {
 	   
@@ -7,6 +10,9 @@ public class Program {
 	   
 	   //schone installatie
 	   final String commandNormalCacheClean = "Remove-Item node_modules; yarn cache clean; time yarn install" ;
+	   
+
+	   
 	   
 //installeren aan de hand van een cache	   
 	   final String commandNormal = "yarn install; Remove-Item node_modules; time yarn install" ;
@@ -41,4 +47,25 @@ public class Program {
 	   }
 		   
 	   }
+	   
+	   
+	   
+	   
+	   private String convertToJsonString(){
+
+		   ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		   String json;
+		try {
+			json = ow.writeValueAsString(result);
+			return json;
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		throw new Error("The coversion failed");
+		
+		   	}
+	   
+	   
 }
