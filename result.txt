@@ -1,0 +1,6 @@
+{
+  "SchoneInstallatie" : [ "00:00:00.3375514" ],
+  "InstallerenAanDeHandVanEenCache" : [ "yarn install v1.22.15" ],
+  "OfflineInstallatieAanDeHandVanEenCache" : [ "00:00:00.2479467" ],
+  "InstallatieSchoneCache" : [ "00:00:00.2382657" ]
+}

@@ -81,6 +81,7 @@ public class Program {
 		    
 	   }
 		   String json = convertResultToJsonString();
+		   System.out.println(json);
 		   writeJson(json);
 	   }
 	
@@ -103,23 +104,12 @@ public class Program {
 	   }
 	   
 	   
-	   private void writeJson(String json) {
-		   File dir = new File("tmp/json");
-		   dir.mkdirs();
-		   File tmp = new File(dir, "json.txt");
-		   try {
-			tmp.createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		   
-		   try(BufferedWriter writer = new BufferedWriter(new FileWriter(tmp))) {
-		        writer.write(json);
-		    } catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	   private void writeJson(String json) throws IOException {
+		 
+		    BufferedWriter writer = new BufferedWriter(new FileWriter("result.txt"));
+		    writer.write(json);
+		    
+		    writer.close();
 	   }
 	   
 	   
