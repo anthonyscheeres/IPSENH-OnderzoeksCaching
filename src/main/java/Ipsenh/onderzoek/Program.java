@@ -18,21 +18,21 @@ public class Program {
 	   Results result = new Results();
 	   
 	   //schone installatie
-	   final String commandNormalCacheClean = "Remove-Item node_modules -Recurse -Force -Confirm:$false; yarn cache clean; time yarn install" ;
+	   final String commandNormalCacheClean = "Remove-Item node_modules -Recurse -Force -Confirm:$false; yarn cache clean; time yarn install  --silent --production=true" ;
 	   
 	   
 	   
 //installeren aan de hand van een cache	   
-	   final String commandNormal = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install" ;
+	   final String commandNormal = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install  --silent --production=true" ;
 
 	    
 		   
 		  //offline installatie aan de hand van een cache
-		   final String commandNormalOffline = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install --offline" ;
+		   final String commandNormalOffline = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install --offline  --silent --production=true" ;
 		   
 
 			  //bestaande dependencies, schone cache
-				final String commandExistingNodeDependencies = "yarn install; yarn cache clean; time yarn install";
+				final String commandExistingNodeDependencies = "yarn install; yarn cache clean; time yarn install  --silent --production=true";
 		
 
 		   String[] commands = { commandNormalCacheClean, commandNormal, commandNormalOffline, commandExistingNodeDependencies};
