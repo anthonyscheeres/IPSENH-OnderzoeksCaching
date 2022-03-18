@@ -1,4 +1,4 @@
-package Ipsenh.xs.main;
+package Ipsenh.onderzoek;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package Ipsenh.xs.main;
+package Ipsenh.onderzoek;
 
 import java.io.BufferedWriter;
 import java.io.File;

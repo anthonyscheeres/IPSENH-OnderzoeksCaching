@@ -1,4 +1,4 @@
-package Ipsenh.xs.main;
+package Ipsenh.onderzoek;
 
 import com.profesorfalken.jpowershell.PowerShell;
 
