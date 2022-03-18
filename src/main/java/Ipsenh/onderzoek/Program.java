@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,7 +39,7 @@ public class Program {
 		   
 		   List<String> resultz = new ArrayList<String>();
 	
-	   public Program (int iterations, double maxTemp) throws Exception {
+	   public Program (int iterations, double maxTemp,   Map<String, String> myConfig) throws Exception {
 		 
 		   String[] ar = commands;
 		   for (int index2iteration = 0; index2iteration < iterations; index2iteration++){
@@ -61,7 +62,7 @@ public class Program {
 
 		            System.out.println(cSplit[index3]);
 	            
-	            String result2 = new CommandPowershell(cSplit[index3]).getTime();
+	            String result2 = new CommandPowershell(cSplit[index3], myConfig).getTime();
 	            
 	    
 	           
