@@ -14,7 +14,9 @@ public class CommandPowershell {
 	
 	public String getTime () {
 
-		   String time = result.split("\n")[result.lastIndexOf('-') + 1];
+		String[] split = result.split("\n");
+		
+		   String time = split[split.length - 1];
 		   
 		   return time;
 	}
