@@ -26,8 +26,7 @@ public class CPUSensors {
 		        for (final Cpu cpu : cpus) {
 		            System.out.println("Found CPU component: " + cpu.name);
 		            if (cpu.sensors != null) {
-		              System.out.println("Sensors: ");
-		  
+		            
 		              //Print temperatures
 		              List<Temperature> temps = cpu.sensors.temperatures;
 		              for (final Temperature temp : temps) {

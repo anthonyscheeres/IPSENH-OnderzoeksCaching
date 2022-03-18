@@ -17,17 +17,17 @@ public class Program {
 	   Results result = new Results();
 	   
 	   //schone installatie
-	   final String commandNormalCacheClean = "Remove-Item node_modules; yarn cache clean; time yarn install" ;
+	   final String commandNormalCacheClean = "Remove-Item node_modules -Recurse -Force -Confirm:$false; yarn cache clean; time yarn install" ;
 	   
 	   
 	   
 //installeren aan de hand van een cache	   
-	   final String commandNormal = "yarn install; Remove-Item node_modules; time yarn install" ;
+	   final String commandNormal = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install" ;
 
 	    
 		   
 		  //offline installatie aan de hand van een cache
-		   final String commandNormalOffline = "yarn install; Remove-Item node_modules; time yarn install --offline" ;
+		   final String commandNormalOffline = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install --offline" ;
 		   
 
 			  //bestaande dependencies, schone cache
@@ -39,10 +39,13 @@ public class Program {
 		   List<String> resultz = new ArrayList<String>();
 	
 	   public Program (int iterations, double maxTemp) throws Exception {
+		 
 		   String[] ar = commands;
 		   for (int index2iteration = 0; index2iteration < iterations; index2iteration++){
 			   resultz = new ArrayList<String>();
 		    for (int index = 0; index < ar.length; index++) {
+		    	  
+		    	  String result3 = "";
 		    	  
 	            // accessing each element of array
 	            String commandx = ar[index];
@@ -50,9 +53,26 @@ public class Program {
 	            if (sensor.isCPUTooHot()) {
 	            	throw new Exception("CPU is throttling");
 	            }
-	            String result2 = new CommandPowershell(createCurrentDirCommand(commandx)).getTime();
+
+	        	String[] cSplit = commandx.split("; ");
+	       
+			    for (int index3 = 0; index3 < cSplit.length; index3++) {
 	            
-	            resultz.add(result2);
+
+		            System.out.println(cSplit[index3]);
+	            
+	            String result2 = new CommandPowershell(cSplit[index3]).getTime();
+	            
+	    
+	           
+	            if (cSplit.length -1 == index3) {
+	            	result3 = result2;
+	                System.out.println(result2);
+	            }
+	            
+			    }
+	            
+	            resultz.add(result3);
 	         
 	            
 	        }
@@ -72,10 +92,7 @@ public class Program {
 		   
 	   }
 	   
-	   private String createCurrentDirCommand(String command) {
-		   String COMMAND = "cd " + currentDir() + "; "+ command;
-		   return COMMAND;
-	   }
+
 	   
 	   private String currentDir() {
 		   String userDirectory = FileSystems.getDefault()
