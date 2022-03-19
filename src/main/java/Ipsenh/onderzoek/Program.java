@@ -27,7 +27,7 @@ public class Program {
 	
 	   public Program (int iterations, double maxTemp,   Map<String, String> myConfig) throws Exception {
 		 
-		   for (int index2iteration = 0; index2iteration < iterations; index2iteration++){
+		   for (int index2iteration = 1; index2iteration <= iterations; index2iteration++){
 			   
 
                System.out.println(" --- Iteration Nr. ---");
