@@ -1,6 +1,3 @@
 {
-  "SchoneInstallatie" : [ "00:00:00.2245256" ],
-  "InstallerenAanDeHandVanEenCache" : [ "00:00:00.2269881" ],
-  "OfflineInstallatieAanDeHandVanEenCache" : [ "00:00:00.2236102" ],
-  "InstallatieSchoneCache" : [ "00:00:00.2553683" ]
+  "OfflineInstallatieAanDeHandVanEenCache" : [ "00:00:00.3224811" ]
 }

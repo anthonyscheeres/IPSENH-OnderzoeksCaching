@@ -20,7 +20,11 @@ public class Program {
 
 		   
 		  //offline installatie aan de hand van een cache
-		   final String commandNormalOffline = "yarn install; Remove-Item node_modules -Recurse -Force -Confirm:$false; time yarn install --offline  --silent --production=true" ;
+		   final String commandNormalOffline = 
+				  "yarn cache clean; "
+		   		+ "yarn install; "
+		   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
+		   		+ "time yarn install --offline  --silent --production=true" ;
 		   
 
 		   List<String> resultz = new ArrayList<String>();
