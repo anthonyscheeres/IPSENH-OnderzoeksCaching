@@ -8,6 +8,7 @@ import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,8 +22,7 @@ public class Program {
 		   
 		  //offline installatie aan de hand van een cache
 		   final String commandNormalOffline = 
-				  "yarn cache clean; "
-		   		+ "yarn install; "
+				   "yarn install; "
 		   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
 		   		+ "time yarn install --offline  --silent --production=true" ;
 		   
@@ -49,6 +49,9 @@ public class Program {
 
 			            System.out.println(cSplit[index3]);			 
 	            
+			            
+			            TimeUnit.SECONDS.sleep(1);   
+			            
 	            String result2 = new CommandPowershell(cSplit[index3], myConfig).getTime();
 	            
 	            
@@ -74,6 +77,8 @@ public class Program {
 		   String json = convertResultToJsonString();
 		   System.out.println(json);
 		   writeJson(json);
+		   
+		   System.out.println(" --- End ---");
 	   }
 
 
