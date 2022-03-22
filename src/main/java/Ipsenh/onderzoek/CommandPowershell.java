@@ -20,11 +20,9 @@ public class CommandPowershell {
 	}
 	
 	public String getTime () {
-
-		//System.out.println(result);
 		
 		if(result==null) {
-			return null;
+			return result;
 		}
 		
 		String[] split = result.split("\n");
