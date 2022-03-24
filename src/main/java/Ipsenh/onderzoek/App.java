@@ -19,7 +19,7 @@ public class App {
  	   final String commandNormalOfflineNPM = 
  			   "npm install --loglevel=error; "
  	   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
- 	   		+ "time npm --cache-min 9999999 " ;
+ 	   		+ "time npm --cache-min 9999999 --loglevel=error" ;
  	   
  	   
  	   
