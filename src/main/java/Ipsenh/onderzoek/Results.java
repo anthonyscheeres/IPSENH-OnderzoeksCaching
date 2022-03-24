@@ -9,8 +9,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 public class Results {
 
 
-	public List<String> OfflineInstallatieAanDeHandVanEenCache= new ArrayList<String>();
-
+	public List<String> installatieAanDeHandVanEenCache= new ArrayList<String>();
 
 	
 	

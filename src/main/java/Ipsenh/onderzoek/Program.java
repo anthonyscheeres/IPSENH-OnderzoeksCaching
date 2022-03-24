@@ -21,28 +21,22 @@ public class Program {
 
 		   
 		  //offline installatie aan de hand van een cache
-		   final String commandNormalOffline = 
-				   "yarn install; "
-		   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
-		   		+ "time yarn install --offline  --silent --production=true" ;
-		   
+		   String commandNormalOffline;
 
 		   List<String> resultz = new ArrayList<String>();
 	
-	   public Program (int iterations, double maxTemp,   Map<String, String> myConfig) throws Exception {
+	   public Program (int iterations, double maxTemp,   Map<String, String> myConfig, String command) throws Exception {
 		 
+		   this.commandNormalOffline =  command; 
+		   
 		   for (int index2iteration = 1; index2iteration <= iterations; index2iteration++){
 			   
 
                System.out.println(" --- Iteration Nr. ---");
                System.out.println(index2iteration);
-			   
-	            CPUSensors sensor = new CPUSensors(maxTemp);
-	            if (sensor.isCPUTooHot()) {
-	            	throw new Exception("CPU is throttling");
-	            }
+			
 
-	        	String[] cSplit = commandNormalOffline.split("; ");
+	        	String[] cSplit = command.split("; ");
 	       
 	        	   for (int index3 = 0; index3 < cSplit.length; index3++) {
 	   	            
@@ -50,15 +44,15 @@ public class Program {
 			            System.out.println(cSplit[index3]);			 
 	            
 			            
-			            TimeUnit.SECONDS.sleep(1);   
+			            TimeUnit.SECONDS.sleep(3);   
 			            
 	            String result2 = new CommandPowershell(cSplit[index3], myConfig).getTime();
 	            
 	            
 	            if (cSplit.length -1 == index3) {
 	            	
-	            	  result.OfflineInstallatieAanDeHandVanEenCache.add (result2);
-	            	
+	            	  result.installatieAanDeHandVanEenCache.add (result2);
+	           
 	                System.out.println(result2);
 	            }
 	            
