@@ -38,6 +38,8 @@ public class Program {
 
 	        	String[] cSplit = command.split("; ");
 	       
+	        	  String result2 = null ;
+	        	
 	        	   for (int index3 = 0; index3 < cSplit.length; index3++) {
 	   	            
 
@@ -46,18 +48,13 @@ public class Program {
 			            
 			            TimeUnit.SECONDS.sleep(3);   
 			            
-	            String result2 = new CommandPowershell(cSplit[index3], myConfig).getTime();
+	            result2 = new CommandPowershell(cSplit[index3], myConfig).getTime();
 	            
-	            
-	            if (cSplit.length -1 == index3) {
-	            	
-	            	  result.installatieAanDeHandVanEenCache.add (result2);
-	           
-	                System.out.println(result2);
-	            }
 	            
 			    }
 	        	   
+	        		  result.installatieAanDeHandVanEenCache.add (result2);
+	   	           
 	        	     
 		         
 
