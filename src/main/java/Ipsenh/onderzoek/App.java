@@ -11,15 +11,15 @@ public class App {
     	
     	  //offline installatie aan de hand van een cache
  	   final String commandNormalOffline = 
- 			   "yarn install; "
+ 			   "yarn install --loglevel=error; "
  	   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
- 	   		+ "time yarn install --offline  --silent --production=true" ;
+ 	   		+ "time yarn install --offline --silent --loglevel=error" ;
  	   
  	  //offline installatie aan de hand van een cache
  	   final String commandNormalOfflineNPM = 
  			   "npm install --loglevel=error; "
  	   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
- 	   		+ "time npm --cache-min 9999999 --loglevel=error" ;
+ 	   		+ "time npm install --cache-min 9999999 --loglevel=error" ;
  	   
  	   
  	   
@@ -34,7 +34,7 @@ public class App {
         
 		   try { 
 			//new Program(timeout, 100 , myConfig, commandNormalOffline);
-			new Program(timeout, 100 , myConfig, commandNormalOfflineNPM);
+			new Program(timeout, 100 , myConfig, commandNormalOffline);
 		} catch (Exception e) {
 			//do nothing lol
 		}

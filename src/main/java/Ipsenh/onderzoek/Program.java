@@ -52,7 +52,7 @@ public class Program {
 	            
 	            
 			    }
-	        	   
+	        	   System.out.println("Result: "+result2);
 	        		  result.installatieAanDeHandVanEenCache.add (result2);
 	   	           
 	        	     
