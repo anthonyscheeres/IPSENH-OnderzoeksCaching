@@ -9,17 +9,19 @@ public class App {
 	
     public static void main(String[] args) {
     	
+    	
+    	//time {yarn install -s >$null 2>&1 }
     	  //offline installatie aan de hand van een cache
  	   final String commandNormalOffline = 
- 			   "yarn install --loglevel=error; "
- 	   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
- 	   		+ "time yarn install --offline --silent --loglevel=error" ;
+ 		
+ 	   		  "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
+ 	   		+ "time { yarn install --offline -s >$null 2>&1 }" ;
  	   
  	  //offline installatie aan de hand van een cache
  	   final String commandNormalOfflineNPM = 
- 			   "npm install --loglevel=error; "
- 	   		+ "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
- 	   		+ "time npm install --cache-min 9999999 --loglevel=error" ;
+ 			  
+ 	   		  "Remove-Item node_modules -Recurse -Force -Confirm:$false; "
+ 	   		+ "time { npm install --cache-min 9999999 --loglevel=error >$null 2>&1 }" ;
  	   
  	   
  	   
