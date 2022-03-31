@@ -33,10 +33,10 @@ public class App {
         Map<String, String> myConfig = new HashMap<>();
         myConfig.put("maxWait", args[1] );
         int timeout = Integer.parseInt(args[0]);
-        
+        int timeBetweenCommands =Integer.parseInt(args[2]) ;
 		   try { 
 			//new Program(timeout, 100 , myConfig, commandNormalOffline);
-			new Program(timeout, 100 , myConfig, commandNormalOffline);
+			new Program(timeout, 100 , myConfig, commandNormalOfflineNPM, timeBetweenCommands );
 		} catch (Exception e) {
 			//do nothing lol
 		}

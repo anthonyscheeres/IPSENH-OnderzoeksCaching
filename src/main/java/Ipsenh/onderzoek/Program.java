@@ -25,7 +25,7 @@ public class Program {
 
 		   List<String> resultz = new ArrayList<String>();
 	
-	   public Program (int iterations, double maxTemp,   Map<String, String> myConfig, String command) throws Exception {
+	   public Program (int iterations, double maxTemp,   Map<String, String> myConfig, String command, int timeBetweenCommands ) throws Exception {
 		 
 		   this.commandNormalOffline =  command; 
 		   
@@ -46,7 +46,7 @@ public class Program {
 			            System.out.println(cSplit[index3]);			 
 	            
 			            
-			            TimeUnit.SECONDS.sleep(3);   
+			            TimeUnit.SECONDS.sleep(timeBetweenCommands );   
 			            
 	            result2 = new CommandPowershell(cSplit[index3], myConfig).getTime();
 	            
