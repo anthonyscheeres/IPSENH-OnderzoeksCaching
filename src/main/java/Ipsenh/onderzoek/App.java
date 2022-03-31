@@ -76,6 +76,8 @@ public class App {
 			
 		} catch (Exception e) {
 			//do nothing lol
+			// Terminate JVM
+            System.exit(0);
 		}
 
     }
